@@ -1,0 +1,334 @@
+/* Mobile-First Custom Stylesheet for Giedre Rocha Portfolio */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #7A2035, #B23B57);
+  --glass-bg-light: rgba(255, 255, 255, 0.7);
+  --glass-bg-dark: rgba(30, 41, 59, 0.7);
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 8px 25px rgba(122, 32, 53, 0.12);
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Custom Marsala Theme Colors */
+  --md-primary-fg-color: #7A2035 !important;
+  --md-primary-fg-color--light: #B23B57 !important;
+  --md-primary-fg-color--dark: #5A1827 !important;
+  --md-primary-bg-color: #ffffff !important;
+  --md-primary-bg-color--active: rgba(122, 32, 53, 0.08) !important;
+  --md-accent-fg-color: #B23B57 !important;
+  --md-accent-fg-color--transparent: rgba(178, 59, 87, 0.1) !important;
+  --md-accent-bg-color: #ffffff !important;
+  --md-typeset-a-color: #7A2035 !important;
+}
+
+/* Hide the page/site name in the header on the left side */
+.md-header__title {
+  display: none !important;
+}
+
+/* Base Headings & Mobile Typography */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  font-size: 1.8rem; /* Mobile scale */
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  display: inline-block;
+}
+
+/* --- HERO BANNER (Mobile-First) --- */
+.hero-banner {
+  padding: 1.5rem 1rem; /* Compact for mobile */
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(122, 32, 53, 0.04), rgba(178, 59, 87, 0.04));
+  border: 1px solid rgba(122, 32, 53, 0.08);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+/* Hero Button Container (Mobile-First) */
+.hero-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically on mobile */
+  gap: 0.8rem;
+  width: 100%;
+}
+
+/* --- CARD GRID (Mobile-First) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacks vertically by default on mobile */
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Card Styling (Mobile-First) */
+.custom-card {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: var(--glass-bg-light);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+.custom-card:hover {
+  transform: translateY(-2px); /* Subtle lift for performance on touch */
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(122, 32, 53, 0.25);
+}
+
+.custom-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.custom-card:hover::before {
+  opacity: 1;
+}
+
+.custom-card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.custom-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* --- BADGES (Mobile-First) --- */
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0;
+}
+
+.tech-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Unified Badge Colors matching the primary Marsala theme */
+.tech-badge {
+  background-color: rgba(122, 32, 53, 0.05) !important;
+  color: #7A2035 !important;
+  border: 1px solid rgba(122, 32, 53, 0.15) !important;
+}
+
+/* --- PROJECT SHOWCASE --- */
+.project-showcase {
+  background: var(--glass-bg-light);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+}
+
+.project-showcase:hover {
+  border-color: rgba(178, 59, 87, 0.2);
+  box-shadow: 0 4px 15px rgba(178, 59, 87, 0.08);
+}
+
+.project-showcase h3 {
+  color: #7A2035;
+  margin-top: 0 !important;
+  font-size: 1.1rem;
+}
+
+/* --- TIMELINE (Mobile-First) --- */
+.timeline {
+  position: relative;
+  margin: 1rem 0;
+  padding-left: 1.2rem; /* Reduced for mobile */
+  border-left: 2px solid rgba(122, 32, 53, 0.15);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem; /* Aligned with reduced padding */
+  top: 0.2rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(122, 32, 53, 0.15);
+}
+
+.timeline-date {
+  font-weight: 700;
+  color: #7A2035;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0 !important;
+}
+
+.timeline-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.timeline-content ul {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* --- CONTACT BUTTONS (Mobile-First) --- */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  box-shadow: 0 3px 8px rgba(122, 32, 53, 0.2);
+  transition: var(--transition-smooth);
+  width: 100%; /* Full-width buttons on mobile for easy touching */
+  box-sizing: border-box;
+}
+
+.contact-btn:hover {
+  box-shadow: 0 5px 12px rgba(122, 32, 53, 0.35);
+}
+
+/* ==========================================================================
+   DESKTOP OVERRIDES (Progressive Enhancement)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .md-typeset h1 {
+    font-size: 2.2rem; /* Larger scale on desktops */
+  }
+
+  .hero-banner {
+    padding: 3rem 2rem; /* Comfortable padding */
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row; /* Horizontal button row */
+    justify-content: center;
+    width: auto;
+  }
+
+  .contact-btn {
+    width: auto; /* Inline width for desktop */
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Multi-column grid */
+    gap: 1.5rem;
+  }
+
+  .custom-card {
+    padding: 1.5rem;
+  }
+
+  .custom-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .custom-card p {
+    font-size: 0.9rem;
+  }
+
+  .timeline {
+    padding-left: 2rem; /* Deeper padding */
+  }
+
+  .timeline-item::before {
+    left: -2.35rem; /* Desktop alignment */
+    width: 14px;
+    height: 14px;
+    border-width: 3px;
+    box-shadow: 0 0 0 3px rgba(122, 32, 53, 0.2);
+  }
+
+  .timeline-item:hover::before {
+    transform: scale(1.2);
+  }
+
+  .timeline-date {
+    font-size: 0.95rem;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-content {
+    font-size: 0.9rem;
+  }
+
+  .project-showcase {
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-showcase h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hide Table of Contents (TOC) globally */
+.md-sidebar--secondary, 
+.md-header__button[for="__toc"] {
+  display: none !important;
+}
